@@ -5,8 +5,9 @@
  *      Author: andoni.g, eneko, miguel y ander
  */
 #include <stdio.h>
+#include "menuAdmin.h"
 int main (){
-	int x;
 
+	mostrarMenu();
 	return 0;
 }
