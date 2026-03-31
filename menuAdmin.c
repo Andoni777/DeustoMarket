@@ -19,41 +19,31 @@ void mostrarMenu (){
 	printf ("\n4. Ver Logs del Sistema");
 	printf ("\n0. Salir");
 
-	char linea[100];
-	int opcion;
+	int opcion = 0;
 
 	printf("\nIntroduce el numero de tu selección: ");
-	fgets(linea, sizeof(linea), stdin);
-
-	 if (sscanf(linea, "%d", &opcion) == 1) {
-
-		 switch (opcion){
-			case 1:
-				//gestionarSuper();
-				break;
-			case 2:
-				//gestionarInvProd();
-				break;
-			case 3:
-				//gestionarEmpleado();
-				break;
-			case 4:
-				//verLogs();
-				break;
-			case 0:
-				printf("Cerrando el programa . . .");
-				break;
-			default:
-				printf ("Seleccione una opcion valida por favor");
-				mostrarMenu();
-		};
-
-	   } else {
-		   printf("\nError: no es un numero valido\n");
-	   }
 
 
-
+	switch (opcion){
+		case 1:
+			//gestionarSuper();
+			break;
+		case 2:
+			//gestionarInvProd();
+			break;
+		case 3:
+			//gestionarEmpleado();
+			break;
+		case 4:
+			//verLogs();
+			break;
+		case 0:
+			printf("\nCerrando el programa . . .");
+			return;
+		default:
+			printf ("Seleccione una opcion valida por favor");
+			break;
+	};
 
 
 }
