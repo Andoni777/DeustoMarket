@@ -7,8 +7,8 @@
 
 #ifndef MENUADMIN_H_
 #define MENUADMIN_H_
-void mostrarMenu();
-
+void menuAdmin();
+char mostrarMenu ();
 
 
 #endif /* MENUADMIN_H_ */

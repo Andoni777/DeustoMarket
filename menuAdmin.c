@@ -8,8 +8,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-void mostrarMenu (){
+#define MAX_INPUT 20
+void clearIfNeeded(char *str, int max_line)
+{
+	// Limpia los caracteres de m�s introducidos
+	if ((strlen(str) == max_line-1) && (str[max_line-2] != '\n'))
+		while (getchar() != '\n');
+}
+
+char mostrarMenu () {
 	printf ("\n ==========================================");
 	printf ("\n       DEUSTOMARKET - PANEL DE CONTROL     ");
 	printf ("\n ==========================================");
@@ -18,33 +27,45 @@ void mostrarMenu (){
 	printf ("\n3. Gestión de Empleados");
 	printf ("\n4. Ver Logs del Sistema");
 	printf ("\n0. Salir");
+	printf("\n\nIntroduce el numero de tu selección: ");
 
-	int opcion = 0;
+	fflush(stdout);
+	char linea[MAX_INPUT];
+	fgets(linea, MAX_INPUT, stdin);
+	clearIfNeeded(linea, MAX_INPUT);
+	return *linea;
 
-	printf("\nIntroduce el numero de tu selección: ");
-
-
-	switch (opcion){
-		case 1:
-			//gestionarSuper();
-			break;
-		case 2:
-			//gestionarInvProd();
-			break;
-		case 3:
-			//gestionarEmpleado();
-			break;
-		case 4:
-			//verLogs();
-			break;
-		case 0:
-			printf("\nCerrando el programa . . .");
-			return;
-		default:
-			printf ("Seleccione una opcion valida por favor");
-			break;
-	};
+}
 
 
+
+void menuAdmin (){
+
+	char opcion;
+
+
+	do{
+		opcion = mostrarMenu();
+		switch (opcion){
+			case '1':
+				printf("opcion 1");
+
+				break;
+			case '2':
+				printf("opcion 2");
+				break;
+
+			case '3':
+				printf("opcion 3");
+				break;
+
+			case '4':
+				printf("opcion 4");
+				break;
+
+		}
+	}while(opcion != '0');
+
+	exit (0); // El programa ha finalizado correctamente
 }
 

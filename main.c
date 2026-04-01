@@ -8,6 +8,6 @@
 #include "menuAdmin.h"
 int main (){
 
-	mostrarMenu();
+	menuAdmin();
 	return 0;
 }
