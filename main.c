@@ -5,7 +5,7 @@
  *      Author: andoni.g, eneko, miguel y ander
  */
 #include <stdio.h>
-#include "menuAdmin.h"
+#include "menuAdmin/menuAdmin.h"
 int main (){
 
 	menuAdmin();
