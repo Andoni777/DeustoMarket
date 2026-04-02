@@ -64,6 +64,5 @@ void menuGestSupermercado() {
 
 		}
 	}while(opcion != '0');
-
-	exit (0); // El programa ha finalizado correctamente
+	menuAdmin();
 }

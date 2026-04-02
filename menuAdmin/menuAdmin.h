@@ -9,6 +9,6 @@
 #define MENUADMIN_H_
 void menuAdmin();
 char mostrarMenu ();
-
+void clearIfNeeded(char *str, int max_line);
 
 #endif /* MENUADMIN_H_ */
