@@ -37,7 +37,7 @@ char mostrarMenuGestPersonal() {
 
 }
 
-void menuGestPersonal() {
+void menuGestPersonal(){
 
 	char opcion;
 
@@ -58,13 +58,18 @@ void menuGestPersonal() {
 				break;
 
 			case '4':
-				menuAdmin();
+				printf("opcion 4");
 				break;
+
+			case '5':
+				printf("opcion 5");
+				break;
+
 
 		}
 	}while(opcion != '0');
 
-	exit (0); // El programa ha finalizado correctamente
+	menuAdmin(); // Vuelve al menu principal
 }
 
 

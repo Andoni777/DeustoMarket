@@ -8,8 +8,8 @@
 #ifndef MENUADMIN_MENUGESTPERSONAL_MENUGESTPERSONAL_H_
 #define MENUADMIN_MENUGESTPERSONAL_MENUGESTPERSONAL_H_
 
-char mostrarMenuGestIyP();
-void menuGestIyP();
+char mostrarMenuGestPersonal();
+void menuGestPersonal();
 
 
 #endif /* MENUADMIN_MENUGESTPERSONAL_MENUGESTPERSONAL_H_ */

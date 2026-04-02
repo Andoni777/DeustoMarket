@@ -59,10 +59,10 @@ void menuGestSupermercado() {
 				break;
 
 			case '4':
-				menuAdmin();
+				printf("opcion 4");
 				break;
 
 		}
 	}while(opcion != '0');
-	menuAdmin();
+	menuAdmin(); // Vuelve al menu principal
 }

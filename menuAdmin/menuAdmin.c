@@ -50,16 +50,13 @@ void menuAdmin (){
 		opcion = mostrarMenu();
 		switch (opcion){
 			case '1':
-				printf("opcion 1");
 				menuGestSupermercado();
 				break;
 			case '2':
-				printf("opcion 2");
 				menuGestIyP();
 				break;
 
 			case '3':
-				printf("opcion 3");
 				menuGestPersonal();
 				break;
 

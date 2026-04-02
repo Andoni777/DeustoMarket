@@ -58,12 +58,12 @@ void menuGestIyP() {
 				break;
 
 			case '4':
-				menuAdmin();
+				printf("opcion 4");
 				break;
 
 		}
 	}while(opcion != '0');
 
-	exit (0); // El programa ha finalizado correctamente
+	menuAdmin(); // Vuelve al menu principal
 }
 
