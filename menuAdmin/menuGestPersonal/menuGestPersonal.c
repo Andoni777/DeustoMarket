@@ -1,12 +1,11 @@
 /*
- * menuGestIyP.c
+ * menuGestPersonal.c
  *
- *  Created on: 1 abr 2026
+ *  Created on: 2 abr 2026
  *      Author: mike
  */
 
-
-#include "menuGestIyP.h"
+#include "menuGestPersonal.h"
 #include "../menuAdmin.h"
 
 #include <stdio.h>
@@ -15,17 +14,18 @@
 
 #define MAX_INPUT 20
 
-char mostrarMenuGestIyP() {
+char mostrarMenuGestPersonal() {
 
-	printf("\n =====================================================");
-	printf("\n       DEUSTOMARKET - GESTIÓN DE INVENTARIO/PRODUCTOS ");
-	printf("\n =====================================================");
-	printf("\n 1. Añadir nuevo producto al catálogo");
-	printf("\n 2. Eliminar producto");
-	printf("\n 3. Modificar precio de producto");
-	printf("\n 4. Actualizar stock de un supermercado");
+	printf("\n =========================================");
+	printf("\n       DEUSTOMARKET - GESTIÓN DE PERSONAL  ");
+	printf("\n =========================================");
+	printf("\n 1. Dar de alta nuevo empleado");
+	printf("\n 2. Dar de baja (eliminar) empleado");
+	printf("\n 3. Modificar datos de empleado");
+	printf("\n 4. Mostrar lista de todos los empleados");
+	printf("\n 5. Mostrar lista de empleados de un supermercado específico");
 	printf("\n 0. Salir al menú principal");
-	printf("\n =====================================================");
+	printf("\n =========================================");
 	printf("\n\nIntroduce el número de tu selección: ");
 
 	fflush(stdout);
@@ -37,13 +37,13 @@ char mostrarMenuGestIyP() {
 
 }
 
-void menuGestIyP() {
+void menuGestPersonal() {
 
 	char opcion;
 
 
 	do{
-		opcion = mostrarMenuGestIyP();
+		opcion = mostrarMenuGestPersonal();
 		switch (opcion){
 			case '1':
 				printf("opcion 1");
@@ -66,4 +66,5 @@ void menuGestIyP() {
 
 	exit (0); // El programa ha finalizado correctamente
 }
+
 
