@@ -59,7 +59,7 @@ void menuGestSupermercado() {
 				break;
 
 			case '4':
-				printf("opcion 4");
+				menuAdmin();
 				break;
 
 		}

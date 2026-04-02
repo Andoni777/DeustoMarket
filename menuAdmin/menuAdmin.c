@@ -7,6 +7,7 @@
 #include "menuAdmin.h"
 #include "menuGestSupermercado/menuGestSupermercado.h"
 #include "menuGestIyP/menuGestIyP.h"
+#include "menuGestPersonal/menuGestPersonal.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,6 +60,7 @@ void menuAdmin (){
 
 			case '3':
 				printf("opcion 3");
+				menuGestPersonal();
 				break;
 
 			case '4':
