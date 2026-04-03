@@ -8,9 +8,12 @@
 #include "eliminarSupermercado.h"
 #include <stdio.h>
 #include <string.h>
+#include "../../BDD/sqlite3.h"
 
-int eliminarSupermercado(sqlite3 *db) {
+int eliminarSupermercado() {
+	sqlite3 *db;
     sqlite3_stmt *stmt;
+	sqlite3_open("BDD/deustomarket.db", &db);
     int id;
 
     printf("\n --- ELIMINAR SUPERMERCADO ---");

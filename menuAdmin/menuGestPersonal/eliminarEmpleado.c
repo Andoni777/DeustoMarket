@@ -9,11 +9,15 @@
 #include "eliminarEmpleado.h"
 #include <stdio.h>
 #include <string.h>
+#include "../../BDD/sqlite3.h"
+
 
 #define MAX_DNI 20
 
-int eliminarEmpleado(sqlite3 *db) {
+int eliminarEmpleado() {
+	sqlite3 *db;
     sqlite3_stmt *stmt;
+	sqlite3_open("BDD/deustomarket.db", &db);
     char dni[MAX_DNI];
 
     printf("\n --- DAR DE BAJA EMPLEADO ---");

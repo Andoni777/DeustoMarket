@@ -8,8 +8,8 @@
 #ifndef MENUADMIN_MENUGESTIYP_ELIMINARPRODUCTO_H_
 #define MENUADMIN_MENUGESTIYP_ELIMINARPRODUCTO_H_
 
-#include "sqlite3.h"
 
-int eliminarProducto(sqlite3 *db);
+
+int eliminarProducto();
 
 #endif /* MENUADMIN_MENUGESTIYP_ELIMINARPRODUCTO_H_ */

@@ -8,8 +8,7 @@
 #ifndef MENUADMIN_MENUGESTPERSONAL_ELIMINAREMPLEADO_H_
 #define MENUADMIN_MENUGESTPERSONAL_ELIMINAREMPLEADO_H_
 
-#include "sqlite3.h"
 
-int eliminarEmpleado(sqlite3 *db);
+int eliminarEmpleado();
 
 #endif /* MENUADMIN_MENUGESTPERSONAL_ELIMINAREMPLEADO_H_ */
