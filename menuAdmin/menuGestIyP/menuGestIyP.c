@@ -50,7 +50,7 @@ void menuGestIyP() {
 
 				break;
 			case '2':
-				printf("opcion 2");
+				eliminarProducto();
 				break;
 
 			case '3':

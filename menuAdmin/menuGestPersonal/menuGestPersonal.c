@@ -6,6 +6,9 @@
  */
 
 #include "menuGestPersonal.h"
+#include "eliminarEmpleado.h"
+
+#include "mostrarListadoEmpleado.h"
 #include "../menuAdmin.h"
 
 #include <stdio.h>
@@ -50,7 +53,7 @@ void menuGestPersonal(){
 
 				break;
 			case '2':
-				printf("opcion 2");
+				eliminarEmpleado();
 				break;
 
 			case '3':
@@ -58,11 +61,23 @@ void menuGestPersonal(){
 				break;
 
 			case '4':
-				printf("opcion 4");
-				break;
+				printf("\nMostrando empleados:\n");
+				    mostrarListadoEmpleado();
+
+				    printf("--> Pulsa ENTER para volver al menu...");
+				    fflush(stdout);
+
+				    getchar();
+				    break;
 
 			case '5':
-				printf("opcion 5");
+				    mostrarListadoEmpleadoSuper();
+
+				    printf("--> Pulsa ENTER para volver al menu...");
+				    fflush(stdout);
+
+				    getchar();
+				    break;
 				break;
 
 
