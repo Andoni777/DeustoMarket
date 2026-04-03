@@ -7,6 +7,8 @@
 
 
 #include "menuGestIyP.h"
+#include "eliminarProducto.h"
+#include "mostrarInventario.h"
 #include "../menuAdmin.h"
 
 #include <stdio.h>
@@ -24,6 +26,7 @@ char mostrarMenuGestIyP() {
 	printf("\n 2. Eliminar producto");
 	printf("\n 3. Modificar precio de producto");
 	printf("\n 4. Actualizar stock de un supermercado");
+	printf("\n 5. Mostrar stock de supermercados");
 	printf("\n 0. Salir al menú principal");
 	printf("\n =====================================================");
 	printf("\n\nIntroduce el número de tu selección: ");
@@ -60,6 +63,14 @@ void menuGestIyP() {
 			case '4':
 				printf("opcion 4");
 				break;
+			case '5':
+				mostrarInventario();
+			    printf("--> Pulsa ENTER para volver al menu...");
+			    fflush(stdout);
+
+			    getchar();
+				break;
+
 
 		}
 	}while(opcion != '0');

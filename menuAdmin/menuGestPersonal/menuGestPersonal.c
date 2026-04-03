@@ -78,7 +78,7 @@ void menuGestPersonal(){
 
 				    getchar();
 				    break;
-				break;
+
 
 
 		}
