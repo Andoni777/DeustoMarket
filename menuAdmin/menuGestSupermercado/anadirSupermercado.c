@@ -40,10 +40,10 @@ int anadirSupermercado() {
     	fgets(direccion, 50, stdin);								//pide la direccion del nuevo supermercado
     	direccion[strcspn(direccion, "\n")] = 0;
 
-    		if (strlen(nombre) == 0) {
+    		if (strlen(direccion) == 0) {
     	        printf("--> Error: Valor no permitido\n\n");
     	    }
-    	} while (strlen(nombre) == 0);								//en caso de recibir un char vacio, vuelve a pedir los datos
+    	} while (strlen(direccion) == 0);								//en caso de recibir un char vacio, vuelve a pedir los datos
 
     char SQLInsert[] = "INSERT INTO supermercado (nombre_super, direccion) VALUES (?, ?)";
 

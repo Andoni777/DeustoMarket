@@ -10,6 +10,7 @@
 #include "eliminarProducto.h"
 #include "mostrarInventario.h"
 #include "../menuAdmin.h"
+#include "anadirProducto.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,7 +50,7 @@ void menuGestIyP() {
 		opcion = mostrarMenuGestIyP();
 		switch (opcion){
 			case '1':
-				printf("opcion 1");
+				anadirProducto();
 
 				break;
 			case '2':
