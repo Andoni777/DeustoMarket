@@ -54,6 +54,8 @@ void menuGestIyP() {
 
 				break;
 			case '2':
+				mostrarProductoId();
+				fflush(stdout);
 				eliminarProducto();
 				break;
 

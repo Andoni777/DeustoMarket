@@ -47,3 +47,32 @@ void mostrarInventario() {
 	sqlite3_close(db);
 }
 
+void mostrarProductoId (){
+	sqlite3 *db;
+	sqlite3_stmt *stmt;
+	int result;
+
+	sqlite3_open("BDD/deustomarket.db", &db);
+
+	/* --- SELECT --- */
+	char sql[] = "select p.id_producto, p.nombre_producto from producto p";
+
+	sqlite3_prepare_v2(db, sql, strlen(sql), &stmt, NULL) ;
+
+	printf("\n");
+	do {
+		result = sqlite3_step(stmt) ;
+		if (result == SQLITE_ROW) {
+			printf("%s %s\n",  (char*) sqlite3_column_text(stmt, 0), (char*) sqlite3_column_text(stmt, 1));
+		}
+	} while (result == SQLITE_ROW);
+	printf("\n");
+
+	sqlite3_finalize(stmt);
+
+	/* --- SELECT (fin) --- */
+
+	sqlite3_close(db);
+
+}
+

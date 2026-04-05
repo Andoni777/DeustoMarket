@@ -9,5 +9,6 @@
 #define MENUADMIN_MENUGESTIYP_MOSTRARINVENTARIO_H_
 
 void mostrarInventario();
+void mostrarProductoId();
 
 #endif /* MENUADMIN_MENUGESTIYP_MOSTRARINVENTARIO_H_ */

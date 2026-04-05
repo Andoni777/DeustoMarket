@@ -10,6 +10,7 @@
 
 #include "mostrarListadoEmpleado.h"
 #include "../menuAdmin.h"
+#include "../menuGestSuperMercado/mostrarListadoSuper.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -53,6 +54,8 @@ void menuGestPersonal(){
 
 				break;
 			case '2':
+				mostrarListadoEmpleadoId();
+				fflush(stdout);
 				eliminarEmpleado();
 				break;
 
@@ -71,6 +74,7 @@ void menuGestPersonal(){
 				    break;
 
 			case '5':
+					mostrarListadoSuper();
 				    mostrarListadoEmpleadoSuper();
 
 				    printf("--> Pulsa ENTER para volver al menu...");

@@ -60,7 +60,10 @@ void menuGestSupermercado() {
 				break;
 
 			case '3':
+				mostrarListadoSuperId();
+				fflush (stdout);
 				eliminarSupermercado();
+				fflush (stdout);
 				break;
 
 			case '4':

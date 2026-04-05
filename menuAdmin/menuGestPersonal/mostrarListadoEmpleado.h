@@ -10,6 +10,7 @@
 
 void mostrarListadoEmpleado();
 void mostrarListadoEmpleadoSuper();
+void mostrarListadoEmpleadoId();
 
 
 #endif /* MENUADMIN_MENUGESTPERSONAL_MOSTRARLISTADOEMPLEADO_H_ */
