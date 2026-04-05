@@ -1,0 +1,14 @@
+/*
+ * anadirSupermercado.h
+ *
+ *  Created on: 5 abr 2026
+ *      Author: mike
+ */
+
+
+#ifndef MENUADMIN_MENUGESTSUPERMERCADO_ANADIRSUPERMERCADO_H_
+#define MENUADMIN_MENUGESTSUPERMERCADO_ANADIRSUPERMERCADO_H_
+
+int anadirSupermercado();
+
+#endif /* MENUADMIN_MENUGESTSUPERMERCADO_ANADIRSUPERMERCADO_H_ */
