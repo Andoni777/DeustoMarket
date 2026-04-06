@@ -9,6 +9,7 @@
 #include "mostrarListadoSuper.h"
 #include "eliminarSupermercado.h"
 #include "anadirSupermercado.h"
+#include "modificarDatosSupermercado.h"
 
 #include "../menuAdmin.h"
 
@@ -56,7 +57,7 @@ void menuGestSupermercado() {
 				anadirSupermercado();
 				break;
 			case '2':
-				printf("opcion 2");
+				modificarStockSupermercado();
 				break;
 
 			case '3':
