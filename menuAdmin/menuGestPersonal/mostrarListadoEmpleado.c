@@ -43,7 +43,6 @@ void mostrarListadoEmpleado (){
 	           fprintf(archivo, "Se consulto la lista de empleados\n");
 	           fclose(archivo);
 	       } else {
-	           // Imprimimos un aviso en consola si falla, pero el programa no se cuelga
 	           printf("\n[Aviso]: No se pudo guardar el registro en el archivo de logs.\n");
 	       }
 
@@ -97,7 +96,6 @@ void mostrarListadoEmpleadoSuper() {
            fprintf(archivo, "Se consulto la lista de empleados de super %s\n", nombre_super);
            fclose(archivo);
        } else {
-           // Imprimimos un aviso en consola si falla, pero el programa no se cuelga
            printf("\n[Aviso]: No se pudo guardar el registro en el archivo de logs.\n");
        }
 

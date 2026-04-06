@@ -68,7 +68,6 @@ int anadirSupermercado() {
             fprintf(archivo, "Se añadio el supermercado %s con la direccion %s\n", nombre, direccion);
             fclose(archivo);
         } else {
-            // Imprimimos un aviso en consola si falla, pero el programa no se cuelga
             printf("\n[Aviso]: No se pudo guardar el registro en el archivo de logs.\n");
         }
 

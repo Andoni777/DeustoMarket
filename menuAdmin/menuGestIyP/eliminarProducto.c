@@ -82,7 +82,6 @@ int eliminarProducto() {
            fprintf(archivo, "Se elimino el producto con ID: %d\n", id);
            fclose(archivo);
        } else {
-           // Imprimimos un aviso en consola si falla, pero el programa no se cuelga
            printf("\n[Aviso]: No se pudo guardar el registro en el archivo de logs.\n");
        }
 
