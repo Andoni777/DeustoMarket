@@ -23,15 +23,15 @@ int anadirSupermercado() {
 
 	sqlite3_open("BDD/deustomarket.db", &db);
 
-    printf("\n --- AÑADIR NUEVO SUPERMERCADO ---");
+    printf("\n --- AÑADIR NUEVO SUPERMERCADO ---\n");
 
     do {
-            printf("Introduce el NOMBRE del nuevo supermercado: ");
+            printf("\nIntroduce el NOMBRE del nuevo supermercado: ");
             fgets(nombre, 30, stdin);								//pide el nombre del nuevo supermercado
             nombre[strcspn(nombre, "\n")] = 0;
 
             if (strlen(nombre) == 0) {
-                printf("--> Error: Valor no permitido\n\n");
+                printf("\n--> Error: Valor no permitido\n\n");
             }
         } while (strlen(nombre) == 0);								//en caso de recibir un char vacio, vuelve a pedir los datos
 
@@ -41,7 +41,7 @@ int anadirSupermercado() {
     	direccion[strcspn(direccion, "\n")] = 0;
 
     		if (strlen(direccion) == 0) {
-    	        printf("--> Error: Valor no permitido\n\n");
+    	        printf("\n--> Error: Valor no permitido\n\n");
     	    }
     	} while (strlen(direccion) == 0);								//en caso de recibir un char vacio, vuelve a pedir los datos
 
@@ -55,7 +55,7 @@ int anadirSupermercado() {
     if (result == SQLITE_DONE) {
 		printf("\n Supermercado '%s' añadido correctamente a la base de datos!", nombre);
 	} else {
-		printf("Error añadiendo el supermercado '%s' a la base de datos: %s", nombre, sqlite3_errmsg(db));
+		printf("\n--> Error añadiendo el supermercado '%s' a la base de datos: %s", nombre, sqlite3_errmsg(db));
 	}
 
     sqlite3_finalize(stmt);

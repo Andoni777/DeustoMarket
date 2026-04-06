@@ -20,21 +20,21 @@ int anadirProducto() {
 
     char nombre[15];
     float precio = -1.0;
-    int id_categoria = -1.0;
+    int id_categoria = -1;
 
 
 
 	sqlite3_open("BDD/deustomarket.db", &db);
 
-    printf("\n --- AÑADIR NUEVO PRODUCTO ---");
+    printf("\n --- AÑADIR NUEVO PRODUCTO ---\n");
 
     do {
-            printf("Introduce el NOMBRE del nuevo producto: ");
+            printf("\nIntroduce el NOMBRE del nuevo producto: ");
             fgets(nombre, 15, stdin);
             nombre[strcspn(nombre, "\n")] = 0;
 
             if (strlen(nombre) == 0) {
-                printf("--> Error: Valor no permitido\n\n");
+                printf("\n--> Error: Valor no permitido\n\n");
             }
         } while (strlen(nombre) == 0);
 
@@ -49,18 +49,18 @@ int anadirProducto() {
 
     do {
     	printf("\n--- Categorias Disponibles ---\n");
-    	    	    char sqlCategorias[] = "SELECT id_categoria, nombre_categoria FROM categoria";
-    	    	    sqlite3_prepare_v2(db, sqlCategorias, -1, &stmt, NULL);
+    	char sqlCategorias[] = "SELECT id_categoria, nombre_categoria FROM categoria";
+    	sqlite3_prepare_v2(db, sqlCategorias, -1, &stmt, NULL);
 
-    	    	    while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
-    	    	        printf("ID: %d - %s\n", sqlite3_column_int(stmt, 0), sqlite3_column_text(stmt, 1));
-    	    	    }
-    	    	    sqlite3_finalize(stmt);
+    	while ((result = sqlite3_step(stmt)) == SQLITE_ROW) {
+    		printf("ID: %d - %s\n", sqlite3_column_int(stmt, 0), sqlite3_column_text(stmt, 1));
+    	}
+    	sqlite3_finalize(stmt);
 
     	printf("\nIntroduce la CATEGORIA del nuevo producto: ");
     	fgets(buffer, sizeof(buffer), stdin);
-    		if (sscanf(buffer, "%f", &id_categoria) != 1 || id_categoria <= 0) {
-    			printf("--> Error: Valor no permitido\n\n");
+    		if (sscanf(buffer, "%i", &id_categoria) != 1 || id_categoria <= 0) {
+    			printf("\n--> Error: Valor no permitido\n\n");
     		}
 
        	} while (id_categoria < 0);
@@ -79,7 +79,7 @@ int anadirProducto() {
     if (result == SQLITE_DONE) {
 		printf("\n Producto '%s' añadido correctamente a la base de datos!", nombre);
 	} else {
-		printf("Error añadiendo el producto '%s' a la base de datos: %s", nombre, sqlite3_errmsg(db));
+		printf("\n--> Error añadiendo el producto '%s' a la base de datos: %s", nombre, sqlite3_errmsg(db));
 	}
 
     sqlite3_finalize(stmt);

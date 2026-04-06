@@ -7,10 +7,11 @@
 
 #include "menuGestPersonal.h"
 #include "eliminarEmpleado.h"
+#include "anadirEmpleado.h"
 
 #include "mostrarListadoEmpleado.h"
 #include "../menuAdmin.h"
-#include "../menuGestSuperMercado/mostrarListadoSuper.h"
+#include "../menuGestSupermercado/mostrarListadoSuper.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,7 +51,7 @@ void menuGestPersonal(){
 		opcion = mostrarMenuGestPersonal();
 		switch (opcion){
 			case '1':
-				printf("opcion 1");
+				anadirEmpleado();
 
 				break;
 			case '2':
