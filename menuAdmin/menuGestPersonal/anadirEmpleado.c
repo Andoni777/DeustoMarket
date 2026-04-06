@@ -86,5 +86,18 @@ int anadirEmpleado() {
     sqlite3_finalize(stmt);
     sqlite3_close(db);
 
+    // Logear operacion
+    FILE *archivo;
+    archivo = fopen("Configuracion/logs", "a");
+
+    if (archivo != NULL) {
+            fprintf(archivo, "Se añadio el empleado con DNI: %s NOMBRE: %s PUESTO: %s en el super de ID: %d\n", dni, nombre, puesto, id_super);
+            fclose(archivo);
+        } else {
+            // Imprimimos un aviso en consola si falla, pero el programa no se cuelga
+            printf("\n[Aviso]: No se pudo guardar el registro en el archivo de logs.\n");
+        }
+
+
     return SQLITE_OK;
 }

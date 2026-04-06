@@ -45,6 +45,19 @@ void mostrarInventario() {
 	/* --- SELECT (fin) --- */
 
 	sqlite3_close(db);
+
+	// Logear operacion
+	FILE *archivo;
+	archivo = fopen("Configuracion/logs", "a");
+
+	if (archivo != NULL) {
+		fprintf(archivo, "Se consulto el inventario de los supermercados\n");
+		fclose(archivo);
+	} else {
+	    // Imprimimos un aviso en consola si falla, pero el programa no se cuelga
+	    printf("\n[Aviso]: No se pudo guardar el registro en el archivo de logs.\n");
+      }
+
 }
 
 void mostrarProductoId (){

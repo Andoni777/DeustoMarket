@@ -39,12 +39,35 @@ char mostrarMenu () {
 
 }
 
+void mostrarLogs(){
+	FILE *archivo;
+	char linea[200];
+
+	printf("\n ==========================================");
+	printf("\n          LOGS DEL SISTEMA                 ");
+	printf("\n ==========================================\n\n");
+
+	archivo = fopen("Configuracion/logs", "r");
+
+	if (archivo == NULL) {
+        printf("Todavía no hay ninguna operación registrada en los logs.\n");
+        printf("\n ==========================================\n");
+        return;
+    }
+
+    while (fgets(linea, sizeof(linea), archivo) != NULL) {
+        printf("%s", linea);
+    }
+
+		printf("\n ==========================================\n");
+	    fclose(archivo);
+	}
+
 
 
 void menuAdmin (){
 
 	char opcion;
-
 
 	do{
 		opcion = mostrarMenu();
@@ -61,8 +84,14 @@ void menuAdmin (){
 				break;
 
 			case '4':
-				printf("opcion 4");
-				break;
+				printf("\nMostrando acciones registradas:\n");
+				    mostrarLogs();
+
+				    printf("--> Pulsa ENTER para volver al menu...");
+				    fflush(stdout);
+
+				    getchar();
+				    break;
 
 		}
 	}while(opcion != '0');

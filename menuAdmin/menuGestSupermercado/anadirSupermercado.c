@@ -7,7 +7,7 @@
 
 #include "anadirSupermercado.h"
 #include <stdio.h>
-#include <string.h>-
+#include <string.h>
 #include "../../BDD/sqlite3.h"
 
 int anadirSupermercado() {
@@ -21,7 +21,6 @@ int anadirSupermercado() {
 
 
 
-	sqlite3_open("BDD/deustomarket.db", &db);
 
     printf("\n --- AÑADIR NUEVO SUPERMERCADO ---\n");
 
@@ -60,6 +59,18 @@ int anadirSupermercado() {
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
+
+    // Logear operacion
+    FILE *archivo;
+    archivo = fopen("Configuracion/logs", "a");
+
+    if (archivo != NULL) {
+            fprintf(archivo, "Se añadio el supermercado %s con la direccion %s\n", nombre, direccion);
+            fclose(archivo);
+        } else {
+            // Imprimimos un aviso en consola si falla, pero el programa no se cuelga
+            printf("\n[Aviso]: No se pudo guardar el registro en el archivo de logs.\n");
+        }
 
     return SQLITE_OK;
 

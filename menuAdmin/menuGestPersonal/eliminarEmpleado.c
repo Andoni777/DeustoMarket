@@ -77,5 +77,19 @@ int eliminarEmpleado() {
    printf("Empleado con DNI %s dado de baja correctamente.\n", dni);
    sqlite3_close(db);
    printf("BD cerrada correctamente\n");
+
+   // Logear operacion
+   FILE *archivo;
+   archivo = fopen("Configuracion/logs", "a");
+
+   if (archivo != NULL) {
+           fprintf(archivo, "Se elimino el empleado con DNI: %s\n", dni);
+           fclose(archivo);
+       } else {
+           // Imprimimos un aviso en consola si falla, pero el programa no se cuelga
+           printf("\n[Aviso]: No se pudo guardar el registro en el archivo de logs.\n");
+       }
+
+
    return SQLITE_OK;
 }
