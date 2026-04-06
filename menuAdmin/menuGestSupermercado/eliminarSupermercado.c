@@ -10,64 +10,77 @@
 #include <string.h>
 #include "../../BDD/sqlite3.h"
 
+#include "eliminarSupermercado.h"
+#include <stdio.h>
+#include <string.h>
+#include "../../BDD/sqlite3.h"
+
 int eliminarSupermercado() {
-	sqlite3 *db;
-    sqlite3_stmt *stmt;
-	sqlite3_open("BDD/deustomarket.db", &db);
-    int id;
-
-    printf("\n --- ELIMINAR SUPERMERCADO ---");
-    printf("\nIntroduce el ID del supermercado a eliminar: ");
-    if (scanf("%d", &id) != 1) {
-        printf("Error: entrada no válida.\n");
-        while (getchar() != '\n');
-        return -1;
-    }
-    while (getchar() != '\n');
-
-
-    char sqlCheck[] = "SELECT ID_SUPER, NOMBRE_SUPER FROM SUPERMERCADO WHERE ID_SUPER = ?";
-    int result = sqlite3_prepare_v2(db, sqlCheck, -1, &stmt, NULL);
-    if (result != SQLITE_OK) {
-        printf("Error preparando consulta: %s\n", sqlite3_errmsg(db));
-        return result;
-    }
-    sqlite3_bind_int(stmt, 1, id);
-    result = sqlite3_step(stmt);
-    if (result != SQLITE_ROW) {
-        printf("No se encontró ningún supermercado con ID %d.\n", id);
-        sqlite3_finalize(stmt);
-        return -1;
-    }
-    printf("Supermercado encontrado: %s\n", (char *)sqlite3_column_text(stmt, 1));
-    sqlite3_finalize(stmt);
-
-
-    printf("¿Estás seguro de que quieres eliminarlo? (s/n): ");
-    char confirm;
-    scanf(" %c", &confirm);
-    while (getchar() != '\n');
-    if (confirm != 's' && confirm != 'S') {
-        printf("Operación cancelada.\n");
-        return 0;
-    }
-
-
-    char sqlDelete[] = "DELETE FROM SUPERMERCADO WHERE ID_SUPER = ?";
-    result = sqlite3_prepare_v2(db, sqlDelete, -1, &stmt, NULL);
-    if (result != SQLITE_OK) {
-        printf("Error preparando DELETE: %s\n", sqlite3_errmsg(db));
-        return result;
-    }
-    sqlite3_bind_int(stmt, 1, id);
-    result = sqlite3_step(stmt);
-    if (result != SQLITE_DONE) {
-        printf("Error al eliminar supermercado: %s\n", sqlite3_errmsg(db));
-        sqlite3_finalize(stmt);
-        return result;
-    }
-    sqlite3_finalize(stmt);
-
-    printf("Supermercado con ID %d eliminado correctamente.\n", id);
-    return SQLITE_OK;
+   sqlite3 *db;
+   sqlite3_stmt *stmt;
+   int result;
+   int id;
+   result = sqlite3_open("BDD/deustomarket.db", &db);
+   if (result != SQLITE_OK) {
+       printf("Error opening database: %s\n", sqlite3_errmsg(db));
+       return result;
+   }
+   printf("Database opened\n");
+   printf("\n --- ELIMINAR SUPERMERCADO ---\n");
+   printf("Introduce el ID del supermercado a eliminar: ");
+   if (scanf("%d", &id) != 1) {
+       printf("Error: Entrada no válida.\n");
+       while (getchar() != '\n');
+       sqlite3_close(db);
+       return -1;
+   }
+   while (getchar() != '\n');
+   char sqlCheck[] = "SELECT NOMBRE_SUPER FROM SUPERMERCADO WHERE ID_SUPER = ?";
+   result = sqlite3_prepare_v2(db, sqlCheck, -1, &stmt, NULL);
+   if (result != SQLITE_OK) {
+       printf("Error preparing statement (SELECT): %s\n", sqlite3_errmsg(db));
+       sqlite3_close(db);
+       return result;
+   }
+   sqlite3_bind_int(stmt, 1, id);
+   if (sqlite3_step(stmt) != SQLITE_ROW) {
+       printf("No se encontró ningún supermercado con ID %d.\n", id);
+       sqlite3_finalize(stmt);
+       sqlite3_close(db);
+       return -1;
+   }
+   printf("Supermercado encontrado: %s\n", (char *)sqlite3_column_text(stmt, 0));
+   sqlite3_finalize(stmt);
+   printf("¡Atención! Eliminar un supermercado también eliminará su inventario, empleados y pedidos.\n");
+   printf("¿Estás seguro de que quieres eliminarlo? (s/n): ");
+   char confirm;
+   scanf(" %c", &confirm);
+   while (getchar() != '\n');
+   if (confirm != 's' && confirm != 'S') {
+       printf("Operación cancelada.\n");
+       sqlite3_close(db);
+       return 0;
+   }
+   char *sqlsFK[] = {
+       "DELETE FROM INVENTARIO WHERE ID_SUPER = ?",
+       "DELETE FROM EMPLEADO WHERE ID_SUPER = ?",
+       "DELETE FROM PEDIDO WHERE ID_SUPER = ?",
+       "DELETE FROM SUPERMERCADO WHERE ID_SUPER = ?"
+   };
+   for (int i = 0; i < 4; i++) {
+       if (sqlite3_prepare_v2(db, sqlsFK[i], -1, &stmt, NULL) == SQLITE_OK) {
+           sqlite3_bind_int(stmt, 1, id);
+           sqlite3_step(stmt);
+           sqlite3_finalize(stmt);
+       } else {
+           printf("Error ejecutando el DELETE %d: %s\n", i, sqlite3_errmsg(db));
+           sqlite3_close(db);
+           return -1;
+       }
+   }
+   printf("Supermercado con ID %d eliminado correctamente.\n", id);
+   sqlite3_close(db);
+   printf("BD cerrada correctamente\n");
+   return SQLITE_OK;
 }
+
