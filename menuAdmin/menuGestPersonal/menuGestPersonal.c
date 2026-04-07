@@ -8,6 +8,7 @@
 #include "menuGestPersonal.h"
 #include "eliminarEmpleado.h"
 #include "anadirEmpleado.h"
+#include "modificarEmpleado.h"
 
 #include "mostrarListadoEmpleado.h"
 #include "../menuAdmin.h"
@@ -61,7 +62,8 @@ void menuGestPersonal(){
 				break;
 
 			case '3':
-				printf("opcion 3");
+				mostrarListadoEmpleadoId(); // Para que el admin vea los DNIs
+				modificarEmpleado();
 				break;
 
 			case '4':
