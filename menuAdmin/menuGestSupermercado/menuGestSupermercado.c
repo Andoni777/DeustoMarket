@@ -57,7 +57,7 @@ void menuGestSupermercado() {
 				anadirSupermercado();
 				break;
 			case '2':
-				modificarStockSupermercado();
+				modificarDatosSupermercado();
 				break;
 
 			case '3':
