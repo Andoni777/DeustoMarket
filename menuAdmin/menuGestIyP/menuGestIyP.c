@@ -11,6 +11,8 @@
 #include "mostrarInventario.h"
 #include "../menuAdmin.h"
 #include "anadirProducto.h"
+#include "modificarPrecioProducto.h"
+#include "actualizarStock.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -60,11 +62,13 @@ void menuGestIyP() {
 				break;
 
 			case '3':
-				printf("opcion 3");
+				mostrarProductoId();
+				modificarPrecioProducto();
 				break;
 
 			case '4':
-				printf("opcion 4");
+				mostrarInventario();
+				actualizarStock();
 				break;
 			case '5':
 				mostrarInventario();
